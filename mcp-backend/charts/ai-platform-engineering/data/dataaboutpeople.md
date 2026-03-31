@@ -1,10 +1,10 @@
-@Joeclinton1
+﻿@Joeclinton1
 Joe Clinton
-Joeclinton1 • Collaborator - AI
+Joeclinton1 â€¢ Collaborator - AI
 
 @khoinguyenpham04
 Noah (Pham Tran Khoi Nguyen)
-khoinguyenpham04 • Collaborator - Front End
+khoinguyenpham04 â€¢ Collaborator - Front End
 
 @ryanlin10
 ryanlin10
@@ -124,8 +124,8 @@ A 3rd-year undergraduate at the University of Oxford interested in startups, AI 
 
 ### Awards and Scholarships
 
-*   **David Kevan Lloyd Exhibition** (£200)
-*   **Undergraduate Project Grant** (£500 x 3)
+*   **David Kevan Lloyd Exhibition** (Â£200)
+*   **Undergraduate Project Grant** (Â£500 x 3)
 
 ### Skills
 
@@ -170,7 +170,7 @@ A PhD candidate at UCL working on developing more efficient ways to train founda
 
 ---
 
-## Salman Chishti
+## Hammad Khan
 
 **Software Engineer @ GitHub | Comp Sci & AI Graduate**
 
@@ -232,5 +232,6 @@ An Augmented Reality Research and Software Engineer at GitHub/Microsoft, and a n
 
 *   Science Communication
 *   Academic Writing
+
 
 

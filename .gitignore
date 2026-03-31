@@ -171,4 +171,4 @@ Dockerfile.*
 
 # Backup files
 *.bak
-*.backup
+*.backupdigital_twin_backend/credentials.json

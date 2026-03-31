@@ -1,4 +1,4 @@
-# AgentVerse Task Management Architecture
+﻿# Orvyn Task Management Architecture
 
 ## Overview
 A task management system with AI-powered task breakdown, matching, and allocation.
@@ -130,3 +130,4 @@ types/
 - ChatbotSidebar already exists on right
 - Need to refactor to merge task/user view
 - Add task creation modal overlay
+

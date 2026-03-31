@@ -1,4 +1,4 @@
-import { features } from "@/config/features"
+﻿import { features } from "@/config/features"
 import { Subtask, TaskMetric, MatchCandidate } from "@/types/task"
 import {
   GenerateSubtasksRequest,
@@ -256,7 +256,7 @@ Generate 4-6 subtasks. Each subtask must include all fields above. Use realistic
                 const parsed = JSON.parse(candidateJson)
                 
                 if (parsed.subtasks && Array.isArray(parsed.subtasks)) {
-                  console.log("✅ Successfully parsed JSON with", parsed.subtasks.length, "subtasks")
+                  console.log("âœ… Successfully parsed JSON with", parsed.subtasks.length, "subtasks")
                   return parsed
                 } else {
                   console.log("Parsed JSON but no subtasks array, keys:", Object.keys(parsed))
@@ -291,7 +291,7 @@ Generate 4-6 subtasks. Each subtask must include all fields above. Use realistic
         return text
           .replace(/\*\*/g, '') // Remove bold **
           .replace(/\*/g, '')   // Remove italics *
-          .replace(/^[-•]\s*/, '') // Remove leading dash or bullet
+          .replace(/^[-â€¢]\s*/, '') // Remove leading dash or bullet
           .replace(/^Description:\s*/i, '') // Remove "Description:" prefix
           .replace(/^Title:\s*/i, '') // Remove "Title:" prefix
           .trim()
@@ -358,11 +358,11 @@ Generate 4-6 subtasks. Each subtask must include all fields above. Use realistic
       }
 
       if (subtasks.length > 0) {
-        console.log("✅ Generated", subtasks.length, "subtasks from text parsing")
+        console.log("âœ… Generated", subtasks.length, "subtasks from text parsing")
         return { subtasks }
       }
 
-      console.warn("❌ No subtasks found in response, using mock data")
+      console.warn("âŒ No subtasks found in response, using mock data")
       // Fallback to mock data if no subtasks found
       return await this.mockGenerateSubtasks(request)
     } catch (error) {
@@ -551,7 +551,7 @@ Provide realistic values (0-100) based on the task and subtasks. Generate exactl
                 const parsed = JSON.parse(candidateJson)
                 
                 if (parsed.metrics && Array.isArray(parsed.metrics)) {
-                  console.log("✅ Successfully parsed metrics JSON with", parsed.metrics.length, "metrics")
+                  console.log("âœ… Successfully parsed metrics JSON with", parsed.metrics.length, "metrics")
                   return parsed
                 } else {
                   console.log("Parsed JSON but no metrics array, keys:", Object.keys(parsed))
@@ -570,7 +570,7 @@ Provide realistic values (0-100) based on the task and subtasks. Generate exactl
         }
       }
 
-      console.warn("❌ No metrics found in response, using mock data")
+      console.warn("âŒ No metrics found in response, using mock data")
       return await this.mockAnalyzeMetrics(request)
     } catch (error) {
       console.error("Failed to parse metrics AI response:", error)
@@ -596,7 +596,7 @@ Provide realistic values (0-100) based on the task and subtasks. Generate exactl
     
     // Call the AI platform engineering backend using streaming API
     // The AI will use GitHub MCP to analyze PRs and issues
-    const githubRepo = request.githubRepo || 'salmanmkc/agentverse'
+    const githubRepo = request.githubRepo || 'hammadkhan/orvyn'
     
     const prompt = `Find team members for: "${request.subtask.title}"
 
@@ -606,7 +606,7 @@ Context: ${request.taskTitle}
 Known Team Members:
 1. Joeclinton1 (Joe Clinton) - AI specialist, GitHub: @Joeclinton1
 2. khoinguyenpham04 (Noah/Pham Tran Khoi Nguyen) - Front End specialist, GitHub: @khoinguyenpham04
-3. ryanlin10 - Fine tuning models specialist, GitHub: @ryanlin10
+3. contributor1 - Fine tuning models specialist, GitHub: @contributor1
 4. sul31man - Agentic to agentic specialist, GitHub: @sul31man
 
 Match these team members to the subtask based on their specialties. Use GitHub MCP ONLY if you need to verify activity levels.
@@ -740,7 +740,7 @@ Return top 3 from the known team, ranks 1-3.`
                 const parsed = JSON.parse(candidateJson)
                 
                 if (parsed.matches && Array.isArray(parsed.matches)) {
-                  console.log("✅ Successfully parsed matches JSON with", parsed.matches.length, "matches")
+                  console.log("âœ… Successfully parsed matches JSON with", parsed.matches.length, "matches")
                   return parsed
                 } else {
                   console.log("Parsed JSON but no matches array, keys:", Object.keys(parsed))
@@ -759,7 +759,7 @@ Return top 3 from the known team, ranks 1-3.`
         }
       }
 
-      console.warn("❌ No matches found in response, using mock data")
+      console.warn("âŒ No matches found in response, using mock data")
       return await this.mockFindMatches(request)
     } catch (error) {
       console.error("Failed to parse matches AI response:", error)
@@ -1001,3 +1001,4 @@ Return top 3 from the known team, ranks 1-3.`
 }
 
 export const aiService = new AIService()
+

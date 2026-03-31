@@ -1,8 +1,8 @@
-# 🚀 Cloud GPU Deployment Guide for Fine-tuning Pipeline
+﻿# ðŸš€ Cloud GPU Deployment Guide for Fine-tuning Pipeline
 
 Complete step-by-step guide for running the fine-tuning pipeline on cloud GPU instances (Vast.ai, RunPod, Lambda Labs, etc.)
 
-## 📋 Table of Contents
+## ðŸ“‹ Table of Contents
 
 1. [Prerequisites](#prerequisites)
 2. [Step 1: Setup Cloud GPU Instance](#step-1-setup-cloud-gpu-instance)
@@ -45,7 +45,7 @@ Complete step-by-step guide for running the fine-tuning pipeline on cloud GPU in
 
 1. **Sign up**: Go to https://vast.ai/
 2. **Rent GPU**:
-   - Click "Create" → "GPU Instances"
+   - Click "Create" â†’ "GPU Instances"
    - Filter: RTX 4090 (24GB), availability
    - Sort by price (lowest first)
    - Select instance (check reviews/uptime)
@@ -59,7 +59,7 @@ Complete step-by-step guide for running the fine-tuning pipeline on cloud GPU in
 
 1. **Sign up**: Go to https://www.runpod.io/
 2. **Create Pod**:
-   - Click "Deploy" → "Secure Cloud"
+   - Click "Deploy" â†’ "Secure Cloud"
    - Select GPU: RTX 4090 or A6000
    - Template: `RunPod PyTorch`
    - Click "Deploy"
@@ -148,7 +148,7 @@ cd ~/finetuning_pipeline
 
 ```bash
 # Navigate to project directory
-cd /path/to/AgentVerseProject/finetuning
+cd /path/to/OrvynProject/finetuning
 
 # Transfer all files
 scp -P <port> -r * root@<cloud_ip>:~/finetuning_pipeline/
@@ -230,15 +230,15 @@ huggingface-cli login
    - Enable "Gmail API"
 
 2. **Create OAuth Credentials**:
-   - APIs & Services → Credentials
-   - Create Credentials → OAuth 2.0 Client ID
+   - APIs & Services â†’ Credentials
+   - Create Credentials â†’ OAuth 2.0 Client ID
    - Application type: Desktop app
-   - Download JSON → save as `credentials.json`
+   - Download JSON â†’ save as `credentials.json`
 
 3. **Extract Gmail Data** (on local machine):
 
 ```bash
-cd /path/to/AgentVerseProject/finetuning
+cd /path/to/OrvynProject/finetuning
 
 # Run Gmail extraction
 python gmail_extraction.py \
@@ -627,5 +627,6 @@ After training:
 
 **Estimated Total Cost**: $10-50 (depending on GPU choice and training time)
 
-Good luck with your fine-tuning! 🚀
+Good luck with your fine-tuning! ðŸš€
+
 

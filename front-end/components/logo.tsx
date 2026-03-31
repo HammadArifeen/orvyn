@@ -1,11 +1,11 @@
-import { cn } from '@/lib/utils'
+﻿import { cn } from '@/lib/utils'
 import { IconChartDots3Filled } from '@tabler/icons-react'
 
 export const Logo = ({ className, uniColor }: { className?: string; uniColor?: boolean }) => {
     return (
         <div className={cn('flex items-center gap-2', className)}>
             <IconChartDots3Filled className="h-6 w-6 text-primary" />
-            <span className="text-foreground text-xl font-semibold">Delego</span>
+            <span className="text-foreground text-xl font-semibold">Orvyn</span>
         </div>
     )
 }
@@ -58,3 +58,4 @@ export const LogoStroke = ({ className }: { className?: string }) => {
         </svg>
     )
 }
+

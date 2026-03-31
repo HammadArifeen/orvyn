@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect } from "react"
 import { TaskCreationState } from "@/types/task"
@@ -44,7 +44,7 @@ export function Step4Matching({ state, updateState }: Step4MatchingProps) {
         subtask,
         taskTitle: state.task.title || '',
         taskDescription: state.task.description || '',
-        githubRepo: 'salmanmkc/agentverse',
+        githubRepo: 'hammadkhan/orvyn',
         availableUserIds: users.map((u) => u.id),
       })
 
@@ -263,9 +263,9 @@ export function Step4Matching({ state, updateState }: Step4MatchingProps) {
                                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                   <span>GitHub:</span>
                                   <span>{match.githubActivity.closedPRs} PRs merged</span>
-                                  <span>•</span>
+                                  <span>â€¢</span>
                                   <span>{match.githubActivity.closedIssues} issues resolved</span>
-                                  <span>•</span>
+                                  <span>â€¢</span>
                                   <span>{match.githubActivity.openPRs + match.githubActivity.openIssues} active</span>
                                 </div>
                               </div>
@@ -298,3 +298,4 @@ export function Step4Matching({ state, updateState }: Step4MatchingProps) {
     </div>
   )
 }
+

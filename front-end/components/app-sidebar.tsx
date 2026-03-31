@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import * as React from "react"
 import {
@@ -43,7 +43,7 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
@@ -118,7 +118,7 @@ const data = {
   navSecondary: [
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: IconSettings,
     },
     {
@@ -163,7 +163,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="/dashboard">
                 <IconChartDots3Filled className="!size-5 text-blue-500" />
-                <span className="text-base font-semibold">Delego</span>
+                <span className="text-base font-semibold">Orvyn</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
