@@ -6,32 +6,34 @@ import { auth0 } from "@/lib/auth0";
  * Auth0 Middleware
  *
  * Handles session management and protects routes.
- * The Auth0 middleware automatically:
- * - Refreshes expired sessions
- * - Sets secure session cookies
- * - Handles token rotation
+ * Wrapped in try/catch to handle cases where Auth0 is not configured.
  */
 
 export async function middleware(request: NextRequest) {
-  // Let Auth0 handle session management
-  const authResponse = await auth0.middleware(request);
+    try {
+          const authResponse = await auth0.middleware(request);
 
-  // Protect dashboard routes - redirect to login if not authenticated
-  if (request.nextUrl.pathname.startsWith("/dashboard")) {
-    const session = await auth0.getSession();
-    if (!session) {
-      const loginUrl = new URL("/api/auth/login", request.url);
-      loginUrl.searchParams.set("returnTo", request.nextUrl.pathname);
-      return NextResponse.redirect(loginUrl);
+      if (request.nextUrl.pathname.startsWith("/dashboard")) {
+              try {
+                        const session = await auth0.getSession();
+                        if (!session) {
+                                    const loginUrl = new URL("/api/auth/login", request.url);
+                                    loginUrl.searchParams.set("returnTo", request.nextUrl.pathname);
+                                    return NextResponse.redirect(loginUrl);
+                        }
+              } catch {
+                        return authResponse || NextResponse.next();
+              }
+      }
+
+      return authResponse || NextResponse.next();
+    } catch {
+          return NextResponse.next();
     }
-  }
-
-  return authResponse;
 }
 
 export const config = {
-  matcher: [
-    // Match all routes except static files and Next.js internals
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
-  ],
+    matcher: [
+          "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+        ],
 };
