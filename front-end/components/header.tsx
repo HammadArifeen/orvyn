@@ -86,7 +86,7 @@ export const HeroHeader = () => {
                                     variant="ghost"
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
+                                    <Link href="/api/auth/login">
                                         <span>Login</span>
                                     </Link>
                                 </Button>
@@ -94,7 +94,7 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
+                                    <Link href="/api/auth/login?screen_hint=signup">
                                         <span>Sign Up</span>
                                     </Link>
                                 </Button>
@@ -102,7 +102,7 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
+                                    <Link href="/api/auth/login">
                                         <span>Get Started</span>
                                     </Link>
                                 </Button>
