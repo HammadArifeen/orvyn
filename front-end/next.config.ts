@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  serverExternalPackages: ["openid-client", "@auth0/nextjs-auth0"],
 };
 
 export default nextConfig;
