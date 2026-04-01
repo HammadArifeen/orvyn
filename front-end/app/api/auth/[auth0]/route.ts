@@ -1,14 +1,19 @@
-import { auth0 } from "@/lib/auth0";
+import { NextResponse } from "next/server";
 
 /**
- * Auth0 Dynamic Route Handler
+ * Auth0 v4 Dynamic Route Handler
  *
- * Handles all Auth0 authentication routes:
- * - /api/auth/login - Initiates login flow
- * - /api/auth/callback - Handles OAuth callback
- * - /api/auth/logout - Handles logout
- * - /api/auth/me - Returns user profile
- * - /api/auth/connect/:connection - Initiates account linking (Token Vault)
+ * In @auth0/nextjs-auth0 v4, auth routes are handled automatically
+ * by the middleware at /auth/* paths. This catch-all route redirects
+ * legacy /api/auth/* requests to the new /auth/* paths for backwards
+ * compatibility.
  */
-
-export const GET = auth0.handleAuth();
+export const GET = async (
+  request: Request,
+  { params }: { params: Promise<{ auth0: string }> }
+) => {
+  const { auth0 } = await params;
+  const url = new URL(request.url);
+  // Redirect /api/auth/login -> /auth/login, etc.
+  return NextResponse.redirect(new URL(`/auth/${auth0}`, url.origin));
+};
