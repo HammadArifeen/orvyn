@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
+import { useAuth } from '@/components/auth-provider'
 
 const menuItems = [
     { name: 'Features', href: '#link' },
@@ -15,6 +16,7 @@ const menuItems = [
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
+    const { user, isAuthenticated, isLoading, logoutUrl } = useAuth()
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -81,31 +83,50 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button
-                                    asChild
-                                    variant="ghost"
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/api/auth/login">
-                                        <span>Login</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/api/auth/login?screen_hint=signup">
-                                        <span>Sign Up</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="/api/auth/login">
-                                        <span>Get Started</span>
-                                    </Link>
-                                </Button>
+                                {isLoading ? (
+                                    <div className="h-9 w-20 animate-pulse rounded-md bg-muted" />
+                                ) : isAuthenticated && user ? (
+                                    <>
+                                        <Button asChild size="sm">
+                                            <Link href="/dashboard">
+                                                <span>Dashboard</span>
+                                            </Link>
+                                        </Button>
+                                        <Button asChild variant="ghost" size="sm">
+                                            <a href={logoutUrl}>
+                                                <span>Logout</span>
+                                            </a>
+                                        </Button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Button
+                                            asChild
+                                            variant="ghost"
+                                            size="sm"
+                                            className={cn(isScrolled && 'lg:hidden')}>
+                                            <Link href="/api/auth/login">
+                                                <span>Login</span>
+                                            </Link>
+                                        </Button>
+                                        <Button
+                                            asChild
+                                            size="sm"
+                                            className={cn(isScrolled && 'lg:hidden')}>
+                                            <Link href="/api/auth/login?screen_hint=signup">
+                                                <span>Sign Up</span>
+                                            </Link>
+                                        </Button>
+                                        <Button
+                                            asChild
+                                            size="sm"
+                                            className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
+                                            <Link href="/api/auth/login">
+                                                <span>Get Started</span>
+                                            </Link>
+                                        </Button>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
